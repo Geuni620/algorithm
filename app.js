@@ -1,5 +1,4 @@
-//boj.kr/10926번
+//boj.kr/18108번
 const fs = require(`fs`);
 const input = fs.readFileSync(`/dev/stdin`).toString().trim();
-
-console.log(`${input}??!`);
+console.log(input - 543);
