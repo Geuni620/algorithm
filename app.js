@@ -1,12 +1,17 @@
-//boj.kr/10430번
+//boj.kr/2588번
 const fs = require(`fs`);
-const input = fs.readFileSync(`/dev/stdin`).toString().split(` `);
+let input = fs.readFileSync(`/dev/stdin`).toString().split("\n");
+A = +input[0];
+B = +input[1];
 
-const A = +input[0];
-const B = +input[1];
-const C = +input[2];
+B0 = B % 10;
 
-console.log((A + B) % C);
-console.log(((A % C) + (B % C)) % C);
-console.log((A * B) % C);
-console.log(((A % C) * (B % C)) % C);
+B11 = B % 100;
+B2 = Math.floor(B11 / 10);
+
+B3 = Math.floor(B / 100);
+
+console.log(A * B0);
+console.log(A * B2);
+console.log(A * B3);
+console.log(A * B);
