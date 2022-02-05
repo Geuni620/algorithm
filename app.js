@@ -1,19 +1,45 @@
-/*
-boj.kr/2753번
-윤년이면 1, 아니면 0을 출력하는 프로그램
-윤년은 연도가 4의 배수 이면서(&&) 100의 배수가 아닐 때 또는 400의 배수 일때
+//boj.kr/14681번
+//fs모듈 사용시 런타임 에러 발생 -> readline 처음 사용해봄.
 
-ex) 2012년은 4의 배수 / 100의 배수는 아니라서 윤년
-1900년은 4의 배수 이면서(&&) 100의 배수이고, 400의 배수는 아님 -> 윤년이 아님
-2000년은 4의 배수 이면서 100의 배수이고, 400의 배수 -> 윤년?
-*/
-
+//fs
 const fs = require(`fs`);
-let input = fs.readFileSync(`/dev/stdin`).toString().split(" ");
-const Num = +input;
+let input = fs.readFileSync(`/dev/stdin`).toString().split("\n").trim();
+const x = +input[0];
+const y = +input[1];
 
-if ((Num % 4 == 0 && Num % 100 != 0) || Num % 400 == 0) {
+if (x > 0 && y > 0) {
   console.log(1);
-} else {
-  console.log(0);
+} else if (x < 0 && y > 0) {
+  console.log(2);
+} else if (x < 0 && y < 0) {
+  console.log(3);
+} else if (x > 0 && y < 0) {
+  console.log(4);
 }
+
+//readline
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+let input = [];
+
+rl.on("line", function (line) {
+  input.push(line);
+}).on("close", function () {
+  const x = +input[0];
+  const y = +input[1];
+
+  if (x > 0 && y > 0) {
+    console.log(1);
+  } else if (x < 0 && y > 0) {
+    console.log(2);
+  } else if (x < 0 && y < 0) {
+    console.log(3);
+  } else if (x > 0 && y < 0) {
+    console.log(4);
+  }
+  process.exit();
+});
