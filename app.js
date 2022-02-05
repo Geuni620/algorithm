@@ -1,13 +1,16 @@
-//boj.kr/1330번
+//boj.kr/9498번
 const fs = require(`fs`);
 let input = fs.readFileSync(`/dev/stdin`).toString().split(" ");
-a = +input[0];
-b = +input[1];
+const Num = +input;
 
-if (a > b) {
-  console.log(`>`);
-} else if (a < b) {
-  console.log(`<`);
+if (Num >= 90) {
+  console.log("A");
+} else if (Num >= 80) {
+  console.log("B");
+} else if (Num >= 70) {
+  console.log("C");
+} else if (Num >= 60) {
+  console.log("D");
 } else {
-  console.log(`==`);
+  console.log("F");
 }
