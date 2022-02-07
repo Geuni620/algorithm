@@ -1,9 +1,9 @@
-//boj.kr/2739번
+//boj.kr/10950번
 const fs = require(`fs`);
-let input = fs.readFileSync(`./input.txt`).toString().split(` `);
-let Num = Number(input[0]);
+let input = fs.readFileSync(`./input.txt`).toString().split("\n");
 
-for (let i = 1; i < 10; i++) {
-  let result = Num * i;
-  console.log(`${Num} * ${i} = ${result}`);
+let Num = [];
+for (let i = 1; i <= input[0]; i++) {
+  Num = input[i].split(` `);
+  console.log(+Num[0] + +Num[1]);
 }
