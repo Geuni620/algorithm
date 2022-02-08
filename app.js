@@ -1,11 +1,11 @@
-//boj.kr/ 8393번
+//boj.kr/ 15552번
 const fs = require(`fs`);
-let input = fs.readFileSync(`./input.txt`).toString().split(" ");
-num = +input[0]; //5
+let input = fs.readFileSync(`./input.txt`).toString().split(`\n`);
+let num = Number(input[0]); //5
+let inputSum = ``;
 
-let a = 0;
 for (let i = 1; i <= num; i++) {
-  a = a + i;
+  let inputSplit = input[i].split(` `);
+  inputSum += Number(inputSplit[0]) + Number(inputSplit[1]) + `\n`;
 }
-
-console.log(a);
+console.log(inputSum);
