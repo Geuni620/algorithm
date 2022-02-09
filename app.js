@@ -1,10 +1,10 @@
-//boj.kr/ 2741번
+//boj.kr/ 2742번
 const fs = require(`fs`);
 let input = fs.readFileSync("./input.txt").toString().split(` `);
-let num = Number(input[0]);
+let num = Number(input);
 
 let arr = [];
-for (let i = 1; i <= num; i++) {
+for (i = num; i >= 1; i--) {
   arr += i + `\n`;
 }
 console.log(arr);
