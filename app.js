@@ -7,5 +7,7 @@ let result = [];
 
 for (let i = 1; i <= num; i++) {
   result = input[i].split(` `);
-  console.log(`Case #${i}: ${+result[0] + +result[1]}`);
+  console.log(
+    `Case #${i}: ${result[0]} + ${result[1]} = ${+result[0] + +result[1]} `
+  );
 }
