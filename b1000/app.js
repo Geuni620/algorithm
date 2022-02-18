@@ -1,3 +1,5 @@
+//input을 출력할 때와 input[0]을 출력할 때는 다르다.
+
 const fs = require("fs");
 const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
 let input = fs.readFileSync(filePath).toString().split("\n");
