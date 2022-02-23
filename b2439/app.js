@@ -28,3 +28,19 @@ function solution(N) {
     blank = ``;
   }
 }
+
+//중첩 for문
+solution(+input);
+function solution(N) {
+  for (let i = 1; i <= N; i++) {
+    let star = ``;
+    let blank = ``;
+    for (let j = N; j > N - i; j--) {
+      star += `*`;
+    }
+    for (let k = 1; k <= N - i; k++) {
+      blank += ` `;
+    }
+    console.log(blank + star);
+  }
+}
