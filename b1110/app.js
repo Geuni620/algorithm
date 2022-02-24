@@ -1,52 +1,36 @@
-/* 
-23일 코드에서
-    ans++;
-    console.log(ans);
-    if (origin === makeNum) {
-      break;
-    }
-
-    이렇게 console과 ++ans의 위치만 변경해도 답이 맞게 됨.
-    사소한 부분이라도 신경써야 답을 맞출 수 있음. 한끗차이로 틀림 
-    ans++;
-    if (origin === makeNum) {
-      break;
-    }
-  }
-  console.log(ans);
-}
-
-
-*/
-
 const fs = require("fs");
 const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
 let input = fs.readFileSync(filePath).toString().split(` `);
 
-//220223
+//220224
 solution(input);
 function solution(N) {
-  let i = 0;
+  let origin = Number(N);
   let one;
   let ten;
-  let ans = 0;
-  const origin = Number(N);
-  let makeNum = -1;
+  let makeNum;
+  let ans = 1;
+  while (true) {
+    if (N >= 10) {
+      one = N % 10; //5
+      ten = Math.floor(N / 10); //5
+      makeNum = one + ten; // 10
+      newNum = Number(String(one) + String(makeNum % 10));
 
-  while (origin !== makeNum) {
-    one = N % 10;
-    ten = Math.floor(N / 10);
+      N = newNum;
+    } else {
+      one = N % 10;
+      ten = 0;
+      makeNum = one + ten;
+      newNum = Number(String(one) + String(makeNum % 10));
+      N = newNum;
+    }
 
-    newNum = one + ten;
-    newNum = newNum % 10;
-
-    makeNum = one + `` + newNum;
-    makeNum = Number(makeNum);
-    N = makeNum;
-    ans++;
-    console.log(ans);
-    if (origin === makeNum) {
+    if (origin === N) {
       break;
     }
+
+    ans++;
   }
+  console.log(ans);
 }
