@@ -1,8 +1,3 @@
-const fs = require("fs");
-const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
-let input = fs.readFileSync(filePath).toString().split(` `);
-input = input.map((item) => +item);
-
 /*
 twoSum함수에 숫자배열과 '특정 수'를 인자로 넘기면, 더해서 '특정 수'가 나오는 index를 배열에 담아 return해 주세요.
 
