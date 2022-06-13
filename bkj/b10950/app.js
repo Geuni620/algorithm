@@ -13,7 +13,8 @@ function solution(input) {
   for (i = 1; i <= T; i++) {
     A = input[i].split(` `).map((item) => +item)[0];
     B = input[i].split(` `).map((item) => +item)[1];
-    result = A + B;
-    console.log(result);
+    console.log(A, B);
+    // result = A + B;
+    // console.log(result);
   }
 }
