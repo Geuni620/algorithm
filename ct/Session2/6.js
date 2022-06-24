@@ -10,15 +10,15 @@ function solution(arr) {
 
     for (let j = 0; j < arr.length; j++) {
       count += arr[i][j];
-
-      if (i === j) lineLeft += arr[i][j]; // 왼쪽으로 대각선
       if (count > max) max = count;
     }
 
     for (let j = arr.length - 1; j >= 0; j--) {
+      if (i === j) lineLeft += arr[i][j]; // 왼쪽으로 대각선
       if (i + j === arr.length - 1) lineRight += arr[i][j]; // 오른쪽 대각선
     }
   }
+  console.log(lineLeft, lineRight, max);
 
   answer = Math.max(max, lineLeft, lineRight);
   return answer;
