@@ -1,9 +1,11 @@
 function solution(s) {
-  let answer = 0;
+  let answer = "YES";
   let S = s.toUpperCase();
+
+  /*
   let front = "";
   let back = "";
-
+  
   for (let i = 0; i < 1; i++) {
     fornt = "";
     back = "";
@@ -21,6 +23,11 @@ function solution(s) {
   }
 
   answer = ans;
+  */
+
+  // Method를 이용
+  let reverse = S.split("").reverse().join("");
+  if (reverse !== S) return "NO";
 
   return answer;
 }
