@@ -1,47 +1,34 @@
 function solution(n, arr) {
-  let max = Number.MIN_SAFE_INTEGER;
   let answer = 0;
-  let one = 0;
-  let ten = 0;
-  let hun = 0;
+  let max = Number.MIN_SAFE_INTEGER;
 
-  for (let i = 0; i < n; i++) {
-    // let str = String(arr[i]);
-    // if (str.length < 2) {
-    //   total = +str[0];
-    // }
-    // if (str.length < 3) {
-    //   one = +str[1];
-    //   ten = +str[0];
-    //   total = one + ten;
-    // } else {
-    //   one = +str[0];
-    //   ten = +str[1];
-    //   hun = +str[2];
-    //   total = one + ten + hun;
+  for (let x of arr) {
+    let sum = 0;
+    let num = 0;
+
+    // while문 사용
+    // while (tmp) {
+    //   sum += tmp % 10;
+    //   tmp = Math.floor(tmp / 10);
     // }
 
-    let total = 0;
-    let tmp = +arr[i];
+    // 내장 메서드 사용
+    sum = x
+      .toString()
+      .split("")
+      .reduce((a, b) => a + Number(b), 0);
 
-    while (tmp) {
-      total += tmp % 10;
-      tmp = parseInt(tmp / 10);
-    }
+    if (max <= sum) {
+      max = sum;
 
-    if (max <= total) {
-      max = total;
-
-      if ((max = total)) {
-        answer < arr[i] ? (answer = arr[i]) : (answer = answer);
-      }
+      if (answer < x) answer = x;
     }
   }
 
   return answer;
 }
 
-let arr = [119, 460, 632, 40, 551, 137, 123];
+let arr = [119, 460, 637, 40, 551, 137, 123, 635];
 console.log(solution(7, arr));
 
 /*
@@ -54,6 +41,7 @@ console.log(solution(7, arr));
 
 ---
 
-#7. 답 보고 나서 while 문으로 리펙토링 해보기
-#8. reducer로 적용해볼 수도 있음.
+#1. 간소화 시켜보기
+#2. while문 적용
+#3. 내장메서드 사용해보기
 */
