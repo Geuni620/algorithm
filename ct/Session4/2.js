@@ -1,33 +1,21 @@
 function solution(arr) {
   let answer = [];
-  let num = [];
-  let count = 0;
+  let tmp = 0;
 
-  for (x of arr) {
-    tmp = x;
-
-    // while (tmp) {
-    //   num.push(+tmp.toString().split("").reverse().join(""));
-    //   break;
-    // }
-
-    // 숫자 뒤집기
+  for (let x of arr) {
     let res = 0;
-    while (tmp) {
-      let t = tmp % 10; // 2, 0
-      res = res * 10 + t; // 2, 20
-      tmp = parseInt(tmp / 10); // 3 , 0s
+    while (x) {
+      // 32
+      tmp = x % 10; // 2
+      res = res * 10 + tmp;
+      x = parseInt(x / 10); // 3
     }
 
-    num.push(res);
-  }
-
-  for (let i = 0; i < num.length; i++) {
     count = 0;
-    for (let j = 1; j <= num[i]; j++) {
-      if (num[i] % j === 0) count++;
+    for (let i = 1; i <= res; i++) {
+      if (res % i === 0) count++;
     }
-    if (count === 2) answer.push(num[i]);
+    if (count === 2) answer.push(res);
   }
 
   return answer;
@@ -37,10 +25,8 @@ let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100];
 console.log(solution(arr));
 
 /*
-#1. for문으로 i idx 값을 하나씩 받아보기
-#2. while문을 이용해서 숫자를 하나씩 분해시키기 -> 몫과 나머지로 -> 한 자릿수, 두 자릿수, 세 자릿수. -> method로 해결
-#3. 분해시킨 숫자를 뒤집어주기
-#4. 2 - 9까지 나누었을 때 몫이 0이 되지 않으면 소수 -> 1부터 자기 자신 숫자까지 나누었을 때 몫이 0이 될 경우 count ++ 해줌
-#5. count가 2인 경우만 소수 -> answer.push(num[i])
-#5. return
+#1. 숫자 뒤집기
+#2. 1부터 뒤집은 숫자까지 하나씩 다 나눠본 후, 나머지가 0일 경우 count를 +1씩 올려줌
+#3. count가 2인 경우면, 1과 자기자신밖에 없으므로, 소수
+#4. 소수를 answer에 push 해주고 return
 */
